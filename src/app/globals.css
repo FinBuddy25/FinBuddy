@@ -1,0 +1,306 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+  @keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+    }
+  }
+  @keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+    }
+  15%, 35% {
+    transform: translateZ(0) rotate(90deg);
+    }
+  65%, 85% {
+    transform: translateZ(0) rotate(270deg);
+    }
+  100% {
+    transform: translateZ(0) rotate(360deg);
+    }
+  }
+  @keyframes grid {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(calc(var(--cell-size) * 2));
+    }
+  }
+  @keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+    }
+  }
+  @keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+    }
+  15%, 35% {
+    transform: translateZ(0) rotate(90deg);
+    }
+  65%, 85% {
+    transform: translateZ(0) rotate(270deg);
+    }
+  100% {
+    transform: translateZ(0) rotate(360deg);
+    }
+  }
+}
+
+:root {
+  /* Base Colors */
+  --background: oklch(0.98 0.01 240);      /* Very light blue-gray for page backgrounds */
+  --foreground: oklch(0.25 0.04 245);      /* Dark blue-gray for primary text */
+  --card: oklch(1 0 0);                    /* Pure white for card backgrounds */
+  --card-foreground: oklch(0.25 0.04 245); /* Dark blue-gray for text on cards */
+  --popover: oklch(1 0 0);                 /* Pure white for popover backgrounds */
+  --popover-foreground: oklch(0.25 0.04 245); /* Dark blue-gray for text on popovers */
+
+  /* Primary Colors */
+  --primary: oklch(0.55 0.15 245);         /* Medium blue for primary actions and emphasis */
+  --primary-foreground: oklch(1 0 0);      /* White text on primary-colored backgrounds */
+
+  /* Secondary Colors */
+  --secondary: oklch(0.92 0.02 240);       /* Light blue-gray for secondary elements */
+  --secondary-foreground: oklch(0.3 0.05 245); /* Dark blue-gray for text on secondary backgrounds */
+
+  /* Accent Colors */
+  --accent: oklch(0.85 0.06 245);          /* Light blue for accent elements */
+  --accent-foreground: oklch(0.25 0.04 245); /* Dark blue-gray for text on accent backgrounds */
+
+  /* Muted Colors */
+  --muted: oklch(0.96 0.01 240);           /* Very light blue-gray for muted backgrounds */
+  --muted-foreground: oklch(0.5 0.03 245); /* Medium blue-gray for secondary text */
+
+  /* Destructive Colors */
+  --destructive: oklch(0.65 0.18 25);      /* Medium red for destructive actions and errors */
+  --destructive-foreground: oklch(1 0 0);  /* White text on destructive backgrounds */
+
+  /* Border and Input Colors */
+  --border: oklch(0.92 0.02 240);          /* Light blue-gray for borders */
+  --input: oklch(0.92 0.02 240);           /* Light blue-gray for input borders */
+  --ring: oklch(0.55 0.15 245);            /* Medium blue for focus rings */
+
+  /* Chart Colors */
+  --chart-1: oklch(0.55 0.15 245);         /* Medium blue */
+  --chart-2: oklch(0.6 0.12 200);          /* Teal */
+  --chart-3: oklch(0.65 0.1 160);          /* Green */
+  --chart-4: oklch(0.55 0.12 280);         /* Purple */
+  --chart-5: oklch(0.6 0.14 40);           /* Orange */
+
+  /* Sidebar Colors */
+  --sidebar: oklch(0.25 0.04 245);         /* Dark blue-gray for sidebar background */
+  --sidebar-foreground: oklch(0.95 0.01 240); /* Very light blue-gray for sidebar text */
+  --sidebar-primary: oklch(0.55 0.15 245); /* Medium blue for primary sidebar elements */
+  --sidebar-primary-foreground: oklch(1 0 0); /* White text on primary sidebar elements */
+  --sidebar-accent: oklch(0.3 0.05 245);   /* Darker blue-gray for sidebar accent elements */
+  --sidebar-accent-foreground: oklch(0.95 0.01 240); /* Very light blue-gray for text on sidebar accent elements */
+  --sidebar-border: oklch(0.35 0.04 245);  /* Medium-dark blue-gray for sidebar borders */
+  --sidebar-ring: oklch(0.55 0.15 245);    /* Medium blue for sidebar focus rings */
+
+  /* Magic UI Specific Variables */
+  --button-glow: oklch(0.55 0.15 245 / 25%); /* Subtle glow effect for buttons */
+  --pattern-color: oklch(0.3 0.05 245 / 3%); /* Very subtle pattern color for backgrounds */
+  --shimmer-from: oklch(0.9 0.03 245 / 0%); /* Start of shimmer gradient (transparent) */
+  --shimmer-to: oklch(0.9 0.05 245 / 10%); /* End of shimmer gradient (subtle blue) */
+  --shadow-color: oklch(0.2 0.02 240 / 10%); /* Subtle shadow color for elevation effects */
+
+  /* Border Radius */
+  --radius: 0.5rem;                        /* Base border radius */
+  --radius-sm: calc(var(--radius) - 4px);  /* Small border radius */
+  --radius-md: calc(var(--radius) - 2px);  /* Medium border radius */
+  --radius-lg: var(--radius);              /* Large border radius (same as base) */
+  --radius-xl: calc(var(--radius) + 4px);  /* Extra large border radius */
+}
+
+.dark {
+  /* Base Colors */
+  --background: oklch(0.15 0.02 245);      /* Dark blue-gray for page backgrounds */
+  --foreground: oklch(0.95 0.01 240);      /* Light blue-gray for primary text */
+  --card: oklch(0.2 0.03 245);             /* Darker blue-gray for card backgrounds */
+  --card-foreground: oklch(0.95 0.01 240); /* Light blue-gray for text on cards */
+  --popover: oklch(0.2 0.03 245);          /* Darker blue-gray for popover backgrounds */
+  --popover-foreground: oklch(0.95 0.01 240); /* Light blue-gray for text on popovers */
+
+  /* Primary Colors */
+  --primary: oklch(0.65 0.15 245);         /* Brighter blue for primary actions in dark mode */
+  --primary-foreground: oklch(0.1 0.01 240); /* Dark text on primary-colored backgrounds */
+
+  /* Secondary Colors */
+  --secondary: oklch(0.25 0.04 245);       /* Medium-dark blue-gray for secondary elements */
+  --secondary-foreground: oklch(0.95 0.01 240); /* Light blue-gray for text on secondary backgrounds */
+
+  /* Accent Colors */
+  --accent: oklch(0.3 0.05 245);           /* Medium-dark blue for accent elements */
+  --accent-foreground: oklch(0.95 0.01 240); /* Light blue-gray for text on accent backgrounds */
+
+  /* Muted Colors */
+  --muted: oklch(0.25 0.03 245);           /* Medium-dark blue-gray for muted backgrounds */
+  --muted-foreground: oklch(0.7 0.03 245); /* Medium blue-gray for secondary text */
+
+  /* Destructive Colors */
+  --destructive: oklch(0.7 0.19 25);       /* Brighter red for destructive actions and errors */
+  --destructive-foreground: oklch(1 0 0);  /* White text on destructive backgrounds */
+
+  /* Border and Input Colors */
+  --border: oklch(0.3 0.04 245 / 20%);     /* Medium-dark blue-gray for borders with transparency */
+  --input: oklch(0.3 0.04 245 / 25%);      /* Medium-dark blue-gray for input borders with transparency */
+  --ring: oklch(0.55 0.15 245);            /* Medium blue for focus rings */
+
+  /* Chart Colors - Keep the existing ones as they work well in dark mode */
+  --chart-1: oklch(0.65 0.15 245);         /* Medium blue */
+  --chart-2: oklch(0.6 0.12 200);          /* Teal */
+  --chart-3: oklch(0.65 0.1 160);          /* Green */
+  --chart-4: oklch(0.55 0.12 280);         /* Purple */
+  --chart-5: oklch(0.6 0.14 40);           /* Orange */
+
+  /* Sidebar Colors */
+  --sidebar: oklch(0.15 0.02 245);         /* Dark blue-gray for sidebar background */
+  --sidebar-foreground: oklch(0.95 0.01 240); /* Light blue-gray for sidebar text */
+  --sidebar-primary: oklch(0.65 0.15 245); /* Brighter blue for primary sidebar elements */
+  --sidebar-primary-foreground: oklch(1 0 0); /* White text on primary sidebar elements */
+  --sidebar-accent: oklch(0.25 0.04 245);  /* Medium-dark blue-gray for sidebar accent elements */
+  --sidebar-accent-foreground: oklch(0.95 0.01 240); /* Light blue-gray for text on sidebar accent elements */
+  --sidebar-border: oklch(0.3 0.04 245 / 20%); /* Medium-dark blue-gray for sidebar borders with transparency */
+  --sidebar-ring: oklch(0.55 0.15 245);    /* Medium blue for sidebar focus rings */
+
+  /* Magic UI Specific Variables */
+  --button-glow: oklch(0.65 0.15 245 / 30%); /* Subtle glow effect for buttons in dark mode */
+  --pattern-color: oklch(0.6 0.1 245 / 5%); /* Very subtle pattern color for backgrounds in dark mode */
+  --shimmer-from: oklch(0.6 0.1 245 / 0%); /* Start of shimmer gradient (transparent) */
+  --shimmer-to: oklch(0.6 0.15 245 / 15%); /* End of shimmer gradient (subtle blue) */
+  --shadow-color: oklch(0.1 0.01 240 / 30%); /* Subtle shadow color for elevation effects in dark mode */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Shadow Utilities */
+.shadow-subtle {
+  box-shadow: 0 1px 3px 0 var(--shadow-color, rgba(0, 0, 0, 0.05)),
+              0 1px 2px 0 var(--shadow-color, rgba(0, 0, 0, 0.03));
+}
+
+.shadow-subtle-hover {
+  box-shadow: 0 4px 6px -1px var(--shadow-color, rgba(0, 0, 0, 0.05)),
+              0 2px 4px -1px var(--shadow-color, rgba(0, 0, 0, 0.03));
+}
+
+/* Print styles */
+@media print {
+  /* Hide elements that shouldn't be printed */
+  header,
+  nav,
+  footer,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Reset background colors and shadows for printing */
+  body,
+  .bg-background,
+  .bg-card,
+  .bg-muted,
+  .bg-primary,
+  .bg-secondary {
+    background-color: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+
+  /* Ensure the invoice preview takes up the full page */
+  .print-full-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Adjust font sizes for better print readability */
+  .print-content {
+    font-size: 12pt !important;
+  }
+
+  /* Ensure tables print properly */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  th, td {
+    border: 1px solid #ddd !important;
+    padding: 8px !important;
+  }
+
+  /* Force page breaks where needed */
+  .page-break {
+    page-break-after: always;
+  }
+
+  /* Ensure background colors for status indicators */
+  .print-status-paid {
+    background-color: #d1fae5 !important;
+    color: #065f46 !important;
+  }
+
+  .print-status-pending {
+    background-color: #fef3c7 !important;
+    color: #92400e !important;
+  }
+
+  .print-status-overdue {
+    background-color: #fee2e2 !important;
+    color: #b91c1c !important;
+  }
+}
