@@ -178,8 +178,104 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        {/* Tax Details Chart */}
+        {/* Line Item Sale Graph */}
         <Card className="w-full">
+          <CardHeader>
+            <CardTitle>Product Sales</CardTitle>
+            <CardDescription>Sales by product</CardDescription>
+          </CardHeader>
+          <CardContent className="h-80">
+            <Chart config={lineItemChartConfig}>
+              <BarChart data={lineItemSaleData} layout="vertical">
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis type="number" />
+                <YAxis dataKey="name" type="category" width={80} />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="sales" fill="var(--color-sales)" name="Sales" />
+              </BarChart>
+            </Chart>
+          </CardContent>
+        </Card>
+
+        {/* Purchases Chart */}
+        <Card className="col-span-2 w-full">
+          <CardHeader>
+            <CardTitle>Purchases</CardTitle>
+            <CardDescription>
+              Monthly purchases for the current year
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="h-80">
+            <Chart config={purchasesChartConfig}>
+              <LineChart data={purchasesData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line
+                  type="monotone"
+                  dataKey="amount"
+                  stroke="var(--color-purchases)"
+                  name="Purchases"
+                />
+              </LineChart>
+            </Chart>
+          </CardContent>
+        </Card>
+
+        {/* Geographic Revenue Chart */}
+        <Card className="w-full">
+          <CardHeader>
+            <CardTitle>Geographic Revenue</CardTitle>
+            <CardDescription>Revenue by location</CardDescription>
+          </CardHeader>
+          <CardContent className="h-80">
+            <Chart config={geoChartConfig}>
+              <BarChart data={geoRevenueData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="location" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar
+                  dataKey="revenue"
+                  fill="var(--color-revenue)"
+                  name="Revenue"
+                />
+              </BarChart>
+            </Chart>
+          </CardContent>
+        </Card>
+
+        {/* Orders per Month Chart */}
+        <Card className="w-full">
+          <CardHeader>
+            <CardTitle>Orders per Month</CardTitle>
+            <CardDescription>Monthly order count</CardDescription>
+          </CardHeader>
+          <CardContent className="h-80">
+            <Chart config={ordersChartConfig}>
+              <LineChart data={ordersPerMonthData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line
+                  type="monotone"
+                  dataKey="orders"
+                  stroke="var(--color-orders)"
+                  name="Orders"
+                />
+              </LineChart>
+            </Chart>
+          </CardContent>
+        </Card>
+
+        {/* Tax Details Chart */}
+        <Card className="col-span-2 w-full">
           <CardHeader>
             <CardTitle>Tax Details</CardTitle>
             <CardDescription>Breakdown of taxes</CardDescription>
@@ -214,31 +310,6 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        {/* Orders per Month Chart */}
-        <Card className="w-full">
-          <CardHeader>
-            <CardTitle>Orders per Month</CardTitle>
-            <CardDescription>Monthly order count</CardDescription>
-          </CardHeader>
-          <CardContent className="h-80">
-            <Chart config={ordersChartConfig}>
-              <LineChart data={ordersPerMonthData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="month" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line
-                  type="monotone"
-                  dataKey="orders"
-                  stroke="var(--color-orders)"
-                  name="Orders"
-                />
-              </LineChart>
-            </Chart>
-          </CardContent>
-        </Card>
-
         {/* Repeated Customers Chart */}
         <Card className="w-full">
           <CardHeader>
@@ -264,77 +335,6 @@ export default function DashboardPage() {
                   name="Returning Customers"
                 />
               </BarChart>
-            </Chart>
-          </CardContent>
-        </Card>
-
-        {/* Line Item Sale Graph */}
-        <Card className="w-full">
-          <CardHeader>
-            <CardTitle>Product Sales</CardTitle>
-            <CardDescription>Sales by product</CardDescription>
-          </CardHeader>
-          <CardContent className="h-80">
-            <Chart config={lineItemChartConfig}>
-              <BarChart data={lineItemSaleData} layout="vertical">
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis type="number" />
-                <YAxis dataKey="name" type="category" width={80} />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="sales" fill="var(--color-sales)" name="Sales" />
-              </BarChart>
-            </Chart>
-          </CardContent>
-        </Card>
-
-        {/* Geographic Revenue Chart */}
-        <Card className="w-full">
-          <CardHeader>
-            <CardTitle>Geographic Revenue</CardTitle>
-            <CardDescription>Revenue by location</CardDescription>
-          </CardHeader>
-          <CardContent className="h-80">
-            <Chart config={geoChartConfig}>
-              <BarChart data={geoRevenueData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="location" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar
-                  dataKey="revenue"
-                  fill="var(--color-revenue)"
-                  name="Revenue"
-                />
-              </BarChart>
-            </Chart>
-          </CardContent>
-        </Card>
-
-        {/* Purchases Chart */}
-        <Card className="col-span-2 w-full">
-          <CardHeader>
-            <CardTitle>Purchases</CardTitle>
-            <CardDescription>
-              Monthly purchases for the current year
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="h-80">
-            <Chart config={purchasesChartConfig}>
-              <LineChart data={purchasesData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="month" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line
-                  type="monotone"
-                  dataKey="amount"
-                  stroke="var(--color-purchases)"
-                  name="Purchases"
-                />
-              </LineChart>
             </Chart>
           </CardContent>
         </Card>

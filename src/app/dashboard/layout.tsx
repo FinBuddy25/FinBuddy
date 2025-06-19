@@ -90,17 +90,17 @@ const menuItems: MenuItem[] = [
     href: "#",
     children: [
       {
-        title: "Generate Invoice",
+        title: "Purchase Entry",
         icon: FileText,
         href: "/dashboard/invoice-generation?type=purchase",
       },
       {
-        title: "Purchase Order (Quotation)",
+        title: "Quotation",
         icon: FileText,
         href: "/dashboard/performa-invoices?type=purchase",
       },
       {
-        title: "Purchase Order",
+        title: "Purchases",
         icon: Receipt,
         href: "/dashboard/tax-invoices?type=purchase",
       },

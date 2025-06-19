@@ -173,7 +173,7 @@ export default function ExpensesPage() {
             <DialogTrigger asChild>
               <ShimmerButton className="gap-2">
                 <Plus className="h-4 w-4" />
-                Add Category
+                Add Expense
               </ShimmerButton>
             </DialogTrigger>
             <DialogContent>
@@ -221,10 +221,10 @@ export default function ExpensesPage() {
       </div>
 
       {/* Categories Grid */}
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {filteredCategories.map((category) => (
           <Card key={category.id} className="overflow-hidden">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 pl-3">
               <CardTitle className="text-lg font-medium">
                 <div className="flex items-center gap-2">
                   <div
@@ -274,7 +274,7 @@ export default function ExpensesPage() {
             <TabsTrigger value="forecast">Forecast & Trends</TabsTrigger>
           </TabsList>
           <TabsContent value="analytics" className="space-y-6">
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-3 md:grid-cols-2">
               {/* Expense Distribution Chart */}
               <Card className="col-span-1">
                 <CardHeader>
@@ -290,7 +290,7 @@ export default function ExpensesPage() {
                           cx="50%"
                           cy="50%"
                           labelLine={false}
-                          outerRadius={80}
+                          outerRadius={66}
                           fill="#8884d8"
                           dataKey="value"
                           nameKey="name"

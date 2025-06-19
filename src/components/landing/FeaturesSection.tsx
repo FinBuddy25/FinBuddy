@@ -20,9 +20,9 @@ const features = [
     icon: Receipt,
     href: "#invoice-management",
     cta: "Learn More",
-    className: "md:col-span-1",
+    className: "md:col-span-1 bg-white",
     background: (
-      <div className="absolute inset-0 flex items-center justify-center opacity-5">
+      <div className="absolute inset-0 flex items-center justify-center opacity-2">
         <Receipt className="h-56 w-56 text-primary" />
         <GridPattern
           width={20}
@@ -39,9 +39,9 @@ const features = [
     icon: Wallet,
     href: "#expense-tracking",
     cta: "Learn More",
-    className: "md:col-span-1",
+    className: "md:col-span-1 bg-white",
     background: (
-      <div className="absolute inset-0 flex items-center justify-center opacity-5">
+      <div className="absolute inset-0 flex items-center justify-center opacity-2">
         <Wallet className="h-56 w-56 text-primary" />
         <GridPattern
           width={20}
@@ -58,9 +58,9 @@ const features = [
     icon: BarChart3,
     href: "#financial-reporting",
     cta: "Learn More",
-    className: "md:col-span-1",
+    className: "md:col-span-1 bg-white",
     background: (
-      <div className="absolute inset-0 flex items-center justify-center opacity-5">
+      <div className="absolute inset-0 flex items-center justify-center opacity-2">
         <BarChart3 className="h-56 w-56 text-primary" />
         <GridPattern
           width={20}
@@ -77,9 +77,9 @@ const features = [
     icon: FileText,
     href: "#document-management",
     cta: "Learn More",
-    className: "md:col-span-1 md:row-span-1",
+    className: "md:col-span-1 md:row-span-1 bg-white",
     background: (
-      <div className="absolute inset-0 flex items-center justify-center opacity-5">
+      <div className="absolute inset-0 flex items-center justify-center opacity-2">
         <FileText className="h-56 w-56 text-primary" />
         <GridPattern
           width={20}
@@ -96,9 +96,9 @@ const features = [
     icon: CreditCard,
     href: "#bank-integration",
     cta: "Learn More",
-    className: "md:col-span-1 md:row-span-1",
+    className: "md:col-span-1 md:row-span-1 bg-white",
     background: (
-      <div className="absolute inset-0 flex items-center justify-center opacity-5">
+      <div className="absolute inset-0 flex items-center justify-center opacity-2">
         <CreditCard className="h-56 w-56 text-primary" />
         <GridPattern
           width={20}
@@ -115,9 +115,9 @@ const features = [
     icon: Shield,
     href: "#tax-compliance",
     cta: "Learn More",
-    className: "md:col-span-1 md:row-span-1",
+    className: "md:col-span-1 md:row-span-1 bg-white",
     background: (
-      <div className="absolute inset-0 flex items-center justify-center opacity-5">
+      <div className="absolute inset-0 flex items-center justify-center opacity-2">
         <Shield className="h-56 w-56 text-primary" />
         <GridPattern
           width={20}
@@ -143,7 +143,7 @@ export default function FeaturesSection() {
           </p>
         </div>
 
-        <BentoGrid className="mx-auto max-w-5xl auto-rows-[20rem] md:auto-rows-[15rem]">
+        <BentoGrid className="mx-auto max-w-5xl auto-rows-[18rem] md:auto-rows-[14rem]">
           {features.map((feature) => (
             <BentoCard
               key={feature.name}
