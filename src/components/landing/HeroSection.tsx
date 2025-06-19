@@ -87,7 +87,7 @@ export default function HeroSection() {
 
           {/* Hero Image */}
           <div className="relative flex items-center justify-center">
-            <div className="relative h-[400px] w-full overflow-hidden rounded-xl border bg-background/50 p-2 shadow-xl md:h-[500px]">
+            <div className="relative h-[fit-content] w-full overflow-hidden rounded-xl border bg-background/50 p-2 shadow-xl md:h-[fit-content]">
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 to-blue-100 dark:from-blue-950/20 dark:to-blue-900/20"></div>
               <div className="relative h-full w-full rounded-lg bg-white shadow-sm dark:bg-gray-900">
                 <div className="h-8 border-b bg-gray-50 dark:border-gray-800 dark:bg-gray-800">
@@ -102,7 +102,7 @@ export default function HeroSection() {
                     </div>
                   </div>
                 </div>
-                <div className="p-4">
+                <div className="flex items-center justify-center p-2">
                   <Image
                     src="/dashboard-preview.png"
                     alt="FinBuddy Dashboard Preview"
@@ -116,13 +116,6 @@ export default function HeroSection() {
                       target.style.display = "none";
                     }}
                   />
-                  {/* Fallback content if image doesn't exist */}
-                  <div className="flex h-full flex-col items-center justify-center">
-                    <BarChart3 className="mb-4 h-16 w-16 text-primary/20" />
-                    <p className="text-center text-muted-foreground">
-                      Comprehensive financial dashboard with real-time insights
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
